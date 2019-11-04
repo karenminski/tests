@@ -14,7 +14,7 @@ form .row {
 
 input {
   border: 0;
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid #5a5e9c;
   padding-left: 15px;
   font-size: 16px;
   font-family: "Roboto Light", serif;
@@ -26,18 +26,18 @@ input:focus {
 
 button {
   padding: 10px 20px;
-  background: green;
+  background: rgb(111, 111, 170);
   border: 0;
   font-family: "Roboto Light", serif;
   color: white;
   font-weight: 400;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .response {
-  border: 1px solid rgba(51, 51, 51, 0.2);
+  border: 5px double rgba(138, 34, 235, 0.89);
   padding: 5px 10px;
   border-radius: 5px;
   width: 300px;
@@ -46,5 +46,5 @@ button {
 
 .images img{
   width: 400px;
-  border: 1px dashed orange;
+  border: 2px dotted rgb(57, 33, 167);
 }
