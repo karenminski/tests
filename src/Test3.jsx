@@ -61,7 +61,7 @@ class Test3 extends React.PureComponent{
         <h3>
           Lahendus:
         </h3>
-
+          <form style={{width: 300}}>
           <div className={"row"}>
             <label htmlFor="username">Username</label>
             <input name="username" value={this.state.password} onChange={this.handleChange} type="text"/>
