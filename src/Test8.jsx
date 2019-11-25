@@ -16,6 +16,7 @@ handleGameClik() {
 } 
 
 handleSubmit = (event) => {
+  if(!this.state.disabled) {
   event.preventDefault();
   fetch("/api/v1/users", {
       method: "POST",
@@ -29,6 +30,7 @@ handleSubmit = (event) => {
   }).catch(err => {
       console.log("Error", err);
   });
+  }
 }
 
 handleChange = (e) => {
