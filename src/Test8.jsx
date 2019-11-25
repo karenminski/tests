@@ -1,19 +1,44 @@
 import React from "react";
 
-class Test8 extends React.PureComponent {
-  render() {
-    return (
-      <div>
-        <Task />
-        implement
-      </div>
-    );
-  }
+class Test8 extends React.PureComponent {  
+  constructor(props){
+  super(props);
+  this.state = {
+    disabled: false,
+    fullName: "",
+    phoneNumber: "",
+    aadress: ""
+  };
 }
 
-export default Test8;
+handleGameClik() {
+  this.setState( {disabled: !this.state.disabled} );
+} 
 
-const Task = () => (
+handleSubmit = (event) => {
+  event.preventDefault();
+  fetch("/api/v1/users", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+  }).then( res => res.text())
+  .then((responseText) => {
+    this.setState({responseText});
+  }).catch(err => {
+      console.log("Error", err);
+  });
+}
+
+handleChange = (e) => {
+  this.setState({
+      [e.target.name]: e.target.value,
+  });
+}
+
+render(){
+  return (
   <div>
     <h3>
       Ülesanne 8:
@@ -32,5 +57,27 @@ const Task = () => (
       </li>
 
     </ol>
+    <form style={{width: 300}} onSubmit={this.handleSubmit}>
+            <div className={"row"}>
+              <label htmlFor="fullName">Full name</label>
+              <input name="fullName" value={this.state.fullName} onChange={this.handleChange} type="text" disabled = {(this.state.disabled)? "disabled" : ""}/>
+            </div>
+            <div className={"row"}>
+              <label htmlFor="phoneNumber">Phone number</label>
+              <input name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} type="number" disabled = {(this.state.disabled)? "disabled" : ""}/>
+            </div>
+            <div className={"row"}>
+              <label htmlFor="address">Address</label>
+              <input name="address" value={this.state.address} onChange={this.handleChange} type="text" disabled = {(this.state.disabled)? "disabled" : ""}/>
+            </div>
+            <div className={"row"} style={{justifyContent: "flex-end"}}>
+              <button>Send</button>
+            </div>
+          </form>
+          <button onClick = {this.handleGameClik.bind(this)}> Nupp </button>
   </div>
-);
+  );
+  }
+}
+
+export default Test8;
