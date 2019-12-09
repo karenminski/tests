@@ -35,6 +35,17 @@ router.post("/", async (req, res) => {
   }
 });
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+router.get("/onlineCount", (req, res)=>{
+  const count = getRandomInt(0, 30);
+  res.status(200).send({count});
+});
+
 /*router.post("/", (req, res) => {
   const user = new User(req.body);
   user.save((err) => {
