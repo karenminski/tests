@@ -33,10 +33,6 @@ class Test9 extends React.PureComponent {
     });
   }
 
-  toggleDisabledState() {
-    this.setState( {disabled: !this.state.disabled} );
-  } 
-
   render() {
     return (
       <div>
@@ -48,32 +44,28 @@ class Test9 extends React.PureComponent {
               <input name="fullName" 
                 value={this.state.fullName}
                 onChange={this.handleChange}
-                type="text" 
-                disabled = {this.state.disabled}/>
+                type="text"/>
             </div>
             <div className={"row"}>
               <label htmlFor="address">Address</label>
               <input name="address" 
                 value={this.state.address}
                 onChange={this.handleChange}
-                type="text"
-                disabled = {this.state.disabled}/>
+                type="text"/>
             </div>
             <div className={"row"}>
               <label htmlFor="phoneNumber">Phone</label>
               <input name="phoneNumber" 
                 value={this.state.phoneNumber}
                 onChange={this.handleChange}
-                type="number"
-                disabled={this.state.disabled}/>
+                type="number"/>
             </div>
             <div className={"row"}>
               <label htmlFor="personalCode">Personal code</label>
               <input name="personalCode" 
                 value={this.state.personalCode}
                 onChange={this.handleChange}
-                type="number"
-                disabled = {this.state.disabled}/>
+                type="number"/>
             </div>
             <div className={"row"} style={{justifyContent: "flex-end"}}>
               <button>Send</button>
